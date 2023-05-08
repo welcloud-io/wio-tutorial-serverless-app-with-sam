@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+    <script>
+      let total_clicks = 0
+      function postDynamoDB() {
+        total_clicks += 1
+        axios.post('/click', { "id": "1", "total": total_clicks }).then(response => {
+            console.log('Click !');
+        })
+        .catch(error => console.error(error));
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="postDynamoDB()">CLICK</button>
+  </body>
+</html>

@@ -1,12 +1,14 @@
 import boto3, json, os, re
 dynamodb = boto3.resource('dynamodb')
 sns = boto3.resource('sns')
+sts = boto3.client('sts')
 
 def user_topic_arn(user_name):
     print(user_name)
+    account_id = sts.get_caller_identity()["Account"]
     topics = sns.meta.client.list_topics()["Topics"]
     topic_arns = [topic['TopicArn'] for topic in topics]
-    user_topic_arn = list(filter(lambda topic_arn: re.match(r"arn:aws:sns:eu-west-1:587338539633:"+ user_name + r"-sam-app-.*",topic_arn), topic_arns))[0]
+    user_topic_arn = list(filter(lambda topic_arn: re.match(r"arn:aws:sns:eu-west-1:" + account_id + ":" + r"simple-sam-app-.*",topic_arn), topic_arns))[0]
     print('TopicArn:', user_topic_arn)
     return user_topic_arn  
 

@@ -42,7 +42,7 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Open template.sam.yaml file
 * Explore the template file
 * Open the landing page function that will be deployed 'landing-page-function/landing_page_function.py'
-* Add 'sam-app-00' in the Command of the _deploy.sh tab that was opened previously
+* Add 'sam-app-00' in the Command field of the _deploy.sh tab that was opened previously
 * Click the 'Run' button at the top left of this tab
 * You should see the app deploying with messages in the tab
 * When done open a new AWS Console (From Cloud9 - AWS Cloud9 [up-left] / Go to your dashboard)
@@ -62,12 +62,34 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Click on the link next to the lambda function & region (this will open the lambda)
 * Explore lambda function page
 
-#### Upate the landing page with a Button to click on
-* Explore 'sam-app-02/landing-page-function' folder
-* Add 'sam-app-02' in the Command of the _deploy.sh tab that was opened previously
+#### Upate the landing page with a Button you can click on
+* Explore files in 'sam-app-02/landing-page-function' folder
+* Add 'sam-app-02' in the Command field of the _deploy.sh tab that was opened previously
 * Click the 'Run' button at the top left of this tab
 * You should see the app deploying with messages in the tab (updating the previous stack) 
 * When done refresh the page containing the landing page (or re-execute the previous test paragraph)
+
+#### Add a table to persist the number of clicks
+* Explore files in 'sam-app-04/landing-page-function' folder
+* Verify that each time you'll click you will post a query to a /click route of your api endpoint
+* Explore files in 'sam-app-04/click-function' folder
+* Verify that each time this function is executed, it will update a dynamodb table item
+* Explore 'sam-app-04/template.sam.yaml'
+* Verify the new Click function is decribed with the appropriate route
+* Verify that the templates will create a dynamodb table
+* Add 'sam-app-04' to in the Command field of the _deploy.sh tab that was opened previously
+
+#### Test clicks are persisted into the table
+* When deployment is done Refresh the page containing the landing page (or re-execute the previous test paragraph)
+* Hit F12 in your web browser to open the developer tools, select network tab to see api calls
+* Click on the <CLICK> button of the landing page, you should see the api calls in developer tools
+* Go to the aws console
+* Go to the dynamodb service
+* Click on the simple-sam-app-ClickTable-... Table
+* Click on 'Explore table Items'
+* Verify the item containing the number of clicks is there
+* Click on the <CLICK> button of the landing page
+* Verify the table is updated
 
 
 

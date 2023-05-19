@@ -8,9 +8,9 @@ This is a very simple tutorial to learn how to build a very simple web applicati
 
 ## Tutorial overview
 
-- First we create the landing page (API Gateway + Lambda) 
-- Second we create the click counter (API Gateway + Lambda + DynamoDB)
-- Third we create the feedback feature ((API Gateway + Lambda + SNS)
+- First we create a function that will return a landing page (API Gateway + Lambda) 
+- Second we create a function that will record clicks in a table (API Gateway + Lambda + DynamoDB)
+- Third we create a function that will record feedback in a table and send a confirmation email (API Gateway + Lambda + DynamoDB + SNS)
 
 ## Setup
 

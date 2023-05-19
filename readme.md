@@ -37,7 +37,7 @@ This is a very simple tutorial to learn how to build a very simple web applicati
 * You should see a new tab opening, with an error message 
 starting with *Missing 'Folder' Parameter*, which is normal
 
-### samp-app-00
+### *sam-app-00*
 
 ##### Deploy "hello" landing page
 * Go to the 'wio-tutorial-serverless-app-with-sam/sam-app-00' folder
@@ -64,7 +64,7 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Click on the link next to the lambda function & region (this will open the lambda)
 * Explore lambda function page
 
-### sam-app-02
+### *sam-app-02*
 
 ##### Upate the landing page with a Button you can click on
 * Explore files in 'sam-app-02/landing-page-function' folder
@@ -73,7 +73,7 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * You should see the app deploying with messages in the tab (updating the previous stack) 
 * When done refresh the page containing the landing page (or re-execute the previous test paragraph)
 
-### sam-app-04
+### *sam-app-04*
 
 ##### Add a table to persist the number of clicks
 * Explore files in 'sam-app-04/landing-page-function' folder
@@ -97,7 +97,7 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Click on the [CLICK] button of the landing page
 * Verify the table is updated
 
-#### sam-app-06
+### *sam-app-06*
 
 #### Persist a feedback in the dynamodb table and send a confirmation email when recorded
 * Explore files in 'sam-app-06/landing-page-function' folder 

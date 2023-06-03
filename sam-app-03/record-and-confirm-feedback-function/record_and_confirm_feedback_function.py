@@ -3,8 +3,7 @@ dynamodb = boto3.resource('dynamodb')
 sns = boto3.resource('sns')
 sts = boto3.client('sts')
 
-def user_topic_arn(user_name):
-    print(user_name)
+def user_topic_arn():
     account_id = sts.get_caller_identity()["Account"]
     topics = sns.meta.client.list_topics()["Topics"]
     topic_arns = [topic['TopicArn'] for topic in topics]
@@ -23,9 +22,8 @@ def lambda_handler(event, context):
         'feedback': json.loads(event['body'])['feedback']
       }
     )
-    user_name = re.search('(.*)-sam-app.*', context.function_name).group(1)
     sns.meta.client.publish(
-      TopicArn = user_topic_arn(user_name),
+      TopicArn = user_topic_arn(),
       Message = 'Thank you ' + json.loads(event['body'])['name'] + ' for your feedback!'
     )
 

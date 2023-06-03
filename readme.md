@@ -68,38 +68,38 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Click on the 'GET' route
 * You should see the relationship between the api endpoint and the lambda
 
-### *sam-app-02*
+### *sam-app-01*
 
 ##### Explore the new landing-page-function containing a click button
-* Open landing_page_function.py in 'sam-app-02/landing-page-function' folder
+* Open landing_page_function.py in 'sam-app-01/landing-page-function' folder
 * Verify it now returns an http response with index.hmtl content
-* Open index.html 'sam-app-02/landing-page-function' folder
+* Open index.html 'sam-app-01/landing-page-function' folder
 * Verify it contains html with a click button 
 
 ##### Redeploy sam-app with a button you can click on
-* Replace 'sam-app-01' with 'sam-app-02' in the command field of the deployment tab
+* Replace 'sam-app-00' with 'sam-app-01' in the command field of the deployment tab
 * Click the 'Run' button at the top left of the deployment tab
 * You should see the app deploying with messages in the tab (updating the previous stack) 
 * When fnished refresh the page containing the landing page (or click again on the api link in api gateway)
 * You should see a click button on the landing page
 
-### *sam-app-04*
+### *sam-app-02*
 
 ##### Explore the landing-page-function
-* Open landing_page_function.py in 'sam-app-04/landing-page-function' folder
+* Open landing_page_function.py in 'sam-app-02/landing-page-function' folder
 * Verify it still return an http response with index.hmtl content
-* Open index.html 'sam-app-04/landing-page-function' folder
+* Open index.html 'sam-app-02/landing-page-function' folder
 * Verify that each time you'll click you will post a query to a '/click' route of your api endpoint
 
 ##### Explore the click-function  
-* Open click_function.py in 'sam-app-04/click-function' folder
+* Open click_function.py in 'sam-app-02/click-function' folder
 * Verify that each time this function is executed, it will update a dynamodb table item
 
 ##### Explore the sam template and deploy
-* Open 'template.sam.yaml' in 'sam-app-04' folder
+* Open 'template.sam.yaml' in 'sam-app-02' folder
 * Verify the new Click function is decribed with the appropriate route '/click'
 * Verify that the templates will create a dynamodb table
-* Replace 'sam-app-02' with 'sam-app-04' in the command field of the deployment tab
+* Replace 'sam-app-01' with 'sam-app-02' in the command field of the deployment tab
 
 ##### Test that the number of clicks is persisted into the table
 * When deployment is finished, refresh the page containing the landing page (or click again on the api link in api gateway)
@@ -113,22 +113,22 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Click on the [CLICK] button of the landing page
 * Verify the table is updated
 
-### *sam-app-06*
+### *sam-app-03*
 
 #### Explore the new landing-page-function
-* Open index.html in 'sam-app-06/landing-page-function' folder 
+* Open index.html in 'sam-app-03/landing-page-function' folder 
 * Verify we now use a /send-feedback route with a feedback content
 * Verify the page contains a feedback field and a send button
 
 #### Explore the send-feedback-function
-* Open send_feedback_function.py files in 'sam-app-06/send-feedback-function' folder 
+* Open send_feedback_function.py files in 'sam-app-03/send-feedback-function' folder 
 * Verify the function will persist a feedback and send it to an sns topic (associated with an email)
 
 #### Explore the sam template and deploy
-* Open 'template.sam.yaml' in 'sam-app-06' folder
+* Open 'template.sam.yaml' in 'sam-app-03' folder
 * Verify we create a table and an sns topic
 * IMPORTANT: under Subscription, replace Endpoint value with your Email
-* Replace 'sam-app-04' with 'sam-app-06' to in the Command field of the _deploy.sh tab that was opened previously
+* Replace 'sam-app-02' with 'sam-app-03' to in the Command field of the _deploy.sh tab that was opened previously
 
 ##### Test you receive a feedback from the app
 * When deployment is finished, refresh the page containing the landing page (or click again on the api link in api gateway)

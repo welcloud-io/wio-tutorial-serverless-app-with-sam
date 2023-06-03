@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Simple Serverless App
+
+Resources:
+  LandingPageFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: landing-page-function/
+      Handler: landing_page_function.lambda_handler
+      Runtime: python3.8
+      Events:
+        GetLandingPage:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: get

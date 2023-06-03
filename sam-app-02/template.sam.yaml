@@ -4,6 +4,9 @@ Description: >
   Simple Serverless App
 
 Resources:
+  # ----------------------------------------------------------------------------
+  # Click Function
+  # ----------------------------------------------------------------------------
   LandingPageFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -16,3 +19,30 @@ Resources:
           Properties:
             Path: /
             Method: get
+
+  # ----------------------------------------------------------------------------
+  # Click Function
+  # ----------------------------------------------------------------------------
+  ClickFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: click-function/
+      Handler: click_function.lambda_handler
+      Runtime: python3.8
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /click
+            Method: post
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref ClickTable            
+      Policies:
+      - AmazonDynamoDBFullAccess
+ 
+  # ----------------------------------------------------------------------------
+  # Click Table
+  # ----------------------------------------------------------------------------
+  ClickTable:
+    Type: AWS::Serverless::SimpleTable

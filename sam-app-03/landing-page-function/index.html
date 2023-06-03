@@ -11,8 +11,8 @@
           alert("Please fill in 'Name' field");
           return
         }
-        axios.post('/send-feedback', { "id": "1", "name": name, "feedback": feedback }).then(response => {
-            console.log('Click !');
+        axios.post('/feedbacks', { "id": "1", "name": name, "feedback": feedback }).then(response => {
+            console.log('Feedback recorded !');
         })
         .catch(error => console.error(error));
       }

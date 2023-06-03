@@ -29,8 +29,11 @@ sam package \
 # ------------------------------------------------------------------------------
 # Deploy packaged SAM template
 # ------------------------------------------------------------------------------
+[[ "$2" != "" ]] && PARAMETERS="--parameter-overrides "$2
 TEMPLATE_NAME="simple-sam-app"
+
 sam deploy \
     --template-file /tmp/packaged.yaml \
     --stack-name $TEMPLATE_NAME \
-    --capabilities CAPABILITY_IAM
+    --capabilities CAPABILITY_IAM \
+    $PARAMETERS

@@ -117,25 +117,25 @@ starting with *Missing 'Folder' Parameter*, which is normal
 
 #### Explore the new landing-page-function
 * Open index.html in 'sam-app-03/landing-page-function' folder 
-* Verify we now use a /send-feedback route with a feedback content
-* Verify the page contains a feedback field and a send button
+* Verify we now use a /feedbacks route with a feedback content
+* Verify the HTML page contains a feedback field and a send button
 
 #### Explore the send-feedback-function
-* Open send_feedback_function.py files in 'sam-app-03/send-feedback-function' folder 
+* Open record_and_confirm_feedback_function.py files in 'sam-app-03/record_and_confirm_feedback_function' folder 
 * Verify the function will persist a feedback and send it to an sns topic (associated with an email)
 
 #### Explore the sam template and deploy
 * Open 'template.sam.yaml' in 'sam-app-03' folder
-* Verify we create a table and an sns topic
-* IMPORTANT: under Subscription, replace Endpoint value with your Email
-* Replace 'sam-app-02' with 'sam-app-03' to in the Command field of the _deploy.sh tab that was opened previously
+* Verify that we create a table and an sns topic
+* Verify Email is a parameter of this template
+* Replace 'sam-app-02' with 'sam-app-03' in the command field of the deployment tab
 
 ##### Test you receive a feedback from the app
-* When deployment is finished, refresh the page containing the landing page (or click again on the api link in api gateway)
-* IMPORTANT: Go to your mailbox and confirm the subscription you received from SNS (click the link in the email)
+* IMPORTANT: When deployment is finished, go to your mailbox and confirm the subscription you received from SNS (click the 'Confirm Subscription' link in the email)
+* Refresh the page containing the landing page (or click again on the api link in api gateway)
 * Fill in the form in the landing and click on [SEND]
 * Check the feed back is recorded in the simple-sam-app-FeedbackTable-.. dynamodb table
-* Check that the user receive a confirmation of it's feedback
+* Check that you received a feedback confirmation in your mailbox
 
 ## Clean things up
 * Go to Cloudformation service

@@ -3,6 +3,10 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   Simple Serverless App
 
+Parameters:
+  Email:
+    Type: String
+
 Resources:
   # ----------------------------------------------------------------------------
   # Landing Page Function
@@ -26,14 +30,14 @@ Resources:
   SendFeedbackFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: send-feedback-function/
-      Handler: send_feedback_function.lambda_handler
+      CodeUri: record-and-confirm-feedback-function/
+      Handler: record_and_confirm_feedback_function.lambda_handler
       Runtime: python3.8
       Events:
         HelloWorld:
           Type: HttpApi
           Properties:
-            Path: /send-feedback
+            Path: /feedbacks
             Method: post
       Environment:
         Variables:
@@ -49,5 +53,6 @@ Resources:
     Type: AWS::SNS::Topic
     Properties:
       Subscription:
-        - Endpoint: "name@domain.com"
+        - Endpoint: 
+            Ref: Email
           Protocol: "email"

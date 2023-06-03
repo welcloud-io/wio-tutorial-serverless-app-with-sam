@@ -100,6 +100,7 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Verify the new Click function is decribed with the appropriate route '/click'
 * Verify that the templates will create a dynamodb table
 * Replace 'sam-app-01' with 'sam-app-02' in the command field of the deployment tab
+* Click the 'Run' button at the top left of the deployment tab
 
 ##### Test that the number of clicks is persisted into the table
 * When deployment is finished, refresh the page containing the landing page (or click again on the api link in api gateway)
@@ -129,6 +130,8 @@ starting with *Missing 'Folder' Parameter*, which is normal
 * Verify that we create a table and an sns topic
 * Verify Email is a parameter of this template
 * Replace 'sam-app-02' with 'sam-app-03' in the command field of the deployment tab
+* Add Email=your.email@domain.com in the command field of the deployment tab
+* Click the 'Run' button at the top left of the deployment tab
 
 ##### Test you receive a feedback from the app
 * IMPORTANT: When deployment is finished, go to your mailbox and confirm the subscription you received from SNS (click the 'Confirm Subscription' link in the email)

@@ -42,6 +42,7 @@ Resources:
       Environment:
         Variables:
           TABLE_NAME: !Ref FeedbackTable            
+          TOPIC_ARN:  !Ref SNSTopic            
       Policies:
       - AmazonDynamoDBFullAccess
       - AmazonSNSFullAccess

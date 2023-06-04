@@ -22,23 +22,9 @@ def record_feedback(id, name, feedback):
 # ------------------------------------------------------------------------------
 # Confirm feedback
 # ------------------------------------------------------------------------------
-def topic_arn():
-    account_id = sts.get_caller_identity()["Account"]
-    topics = sns.meta.client.list_topics()["Topics"]
-    topic_arns = [topic['TopicArn'] for topic in topics]
-    topic_arn = list(
-      filter(
-        lambda topic_arn: re.match(r"arn:aws:sns:" + region + ":" + account_id + ":" + r"simple-sam-app-.*",topic_arn), 
-        topic_arns
-      )
-    )[0]
-    print('TopicArn:', topic_arn)
-    return topic_arn 
-
-    
 def confirm_feedback(name):
     sns.meta.client.publish(
-      TopicArn = topic_arn(),
+      TopicArn = os.environ['TOPIC_ARN'],
       Message = 'Thank you ' + name + ' for your feedback!'
     )
 
